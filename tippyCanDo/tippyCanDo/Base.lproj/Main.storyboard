@@ -39,8 +39,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="SZd-21-wd2">
-                                <rect key="frame" x="176" y="93" width="176" height="33"/>
+                                <rect key="frame" x="183" y="92" width="176" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
@@ -75,6 +76,160 @@
                                     <action selector="calc:" destination="BYZ-38-t0r" eventType="valueChanged" id="2oX-9N-Nzm"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="People" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uIE-6J-cTy">
+                                <rect key="frame" x="34" y="248" width="110" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-Black" family="Arial Black" pointSize="21"/>
+                                <color key="textColor" red="0.45883619790000002" green="0.17886495590000001" blue="0.4961619377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Split Total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4lS-2r-bMw">
+                                <rect key="frame" x="242" y="248" width="110" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-Black" family="Arial Black" pointSize="21"/>
+                                <color key="textColor" red="0.45883619790000002" green="0.17886495590000001" blue="0.4961619377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Person.png" id="K3a-sa-Ku7">
+                                <rect key="frame" x="34" y="467" width="33" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Person.png" id="OnZ-h1-dwn">
+                                <rect key="frame" x="55" y="467" width="33" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Person.png" id="XEf-Gs-SVY">
+                                <rect key="frame" x="76" y="467" width="33" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Person.png" id="hFd-p6-Fie">
+                                <rect key="frame" x="96" y="467" width="33" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Person.png" id="1sa-6S-6Sp">
+                                <rect key="frame" x="117" y="467" width="33" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Person.png" id="feY-5I-hA2">
+                                <rect key="frame" x="137" y="467" width="33" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Person.png" id="ymX-Th-kwU">
+                                <rect key="frame" x="34" y="421" width="33" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Person.png" id="ztW-s4-g51">
+                                <rect key="frame" x="55" y="421" width="33" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Person.png" id="kND-m1-pNf">
+                                <rect key="frame" x="76" y="421" width="33" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Person.png" id="e4Q-Bz-WNQ">
+                                <rect key="frame" x="96" y="421" width="33" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Person.png" id="urF-4A-mML">
+                                <rect key="frame" x="117" y="421" width="33" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Person.png" id="NJ3-6Y-NF9">
+                                <rect key="frame" x="34" y="375" width="33" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Person.png" id="Pyp-ty-5R2">
+                                <rect key="frame" x="55" y="375" width="33" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Person.png" id="lHK-hk-YtB">
+                                <rect key="frame" x="76" y="375" width="33" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Person.png" id="3Ef-qF-5ne">
+                                <rect key="frame" x="96" y="375" width="33" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Person.png" id="PVO-b1-IWr">
+                                <rect key="frame" x="34" y="329" width="33" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Person.png" id="Sf5-lz-Gqy">
+                                <rect key="frame" x="55" y="329" width="33" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Person.png" id="LjY-eC-GhZ">
+                                <rect key="frame" x="76" y="329" width="33" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Person.png" id="gNr-VH-QRp">
+                                <rect key="frame" x="34" y="283" width="33" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Person.png" id="M7l-ax-JGq">
+                                <rect key="frame" x="55" y="283" width="33" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="62X-AD-t6f">
+                                <rect key="frame" x="183" y="283" width="176" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="calc:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="j2f-A6-GwV"/>
+                                    <action selector="calc:" destination="BYZ-38-t0r" eventType="editingChanged" id="ohM-Tg-xrX"/>
+                                </connections>
+                            </textField>
+                            <textField contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="2ls-48-UaZ">
+                                <rect key="frame" x="183" y="332" width="176" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="calc:" destination="BYZ-38-t0r" eventType="editingChanged" id="C7f-M4-H1B"/>
+                                    <action selector="calc:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="OI6-zE-weR"/>
+                                </connections>
+                            </textField>
+                            <textField contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="rEE-yC-E48">
+                                <rect key="frame" x="183" y="378" width="176" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="calc:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="L5P-vt-VUC"/>
+                                    <action selector="calc:" destination="BYZ-38-t0r" eventType="editingChanged" id="v4k-FT-2m1"/>
+                                </connections>
+                            </textField>
+                            <textField contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="jW2-xl-ZAR">
+                                <rect key="frame" x="183" y="426" width="176" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="calc:" destination="BYZ-38-t0r" eventType="editingChanged" id="tlp-lT-taa"/>
+                                    <action selector="calc:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="twI-08-wkj"/>
+                                </connections>
+                            </textField>
+                            <textField contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="Ilb-Zt-EoJ">
+                                <rect key="frame" x="183" y="470" width="176" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="calc:" destination="BYZ-38-t0r" eventType="editingChanged" id="6Zt-MS-cNT"/>
+                                    <action selector="calc:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Uf4-DU-ZYX"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.94334925518134727" green="0.61347178382178891" blue="0.56796057587914528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.45883619790000002" green="0.17886495590000001" blue="0.4961619377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -86,6 +241,11 @@
                     <navigationItem key="navigationItem" title="TippyCanDo" id="u3X-73-eHB"/>
                     <connections>
                         <outlet property="billField" destination="SZd-21-wd2" id="nCL-Eb-3dd"/>
+                        <outlet property="split2" destination="62X-AD-t6f" id="6Ag-Ai-vJc"/>
+                        <outlet property="split3" destination="2ls-48-UaZ" id="IcX-Gn-gMp"/>
+                        <outlet property="split4" destination="rEE-yC-E48" id="Tqc-a8-iu1"/>
+                        <outlet property="split5" destination="jW2-xl-ZAR" id="4ia-ug-Usd"/>
+                        <outlet property="split6" destination="Ilb-Zt-EoJ" id="dot-pG-K6G"/>
                         <outlet property="tipControl" destination="8ll-03-zs6" id="eKi-tL-VaY"/>
                         <outlet property="tipLabel" destination="AEd-rX-ep3" id="UkD-Kg-g2O"/>
                         <outlet property="totalLabel" destination="nWX-he-5D4" id="wgj-19-29m"/>
@@ -119,4 +279,7 @@
             <point key="canvasLocation" x="-146.5" y="2.5000000000000004"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Person.png" width="32" height="32"/>
+    </resources>
 </document>

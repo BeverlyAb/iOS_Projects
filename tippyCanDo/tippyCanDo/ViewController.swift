@@ -15,6 +15,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipControl: UISegmentedControl!
     
+    @IBOutlet weak var split2: UITextField!
+    @IBOutlet weak var split3: UITextField!
+    @IBOutlet weak var split4: UITextField!
+    @IBOutlet weak var split5: UITextField!
+    @IBOutlet weak var split6: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -33,7 +40,7 @@ class ViewController: UIViewController {
     @IBAction func calc(_ sender: Any) {
         //updates tip and total values when tip or bill changes
         let tipPercent = [0.15, 0.2, 0.25]
-        
+      
         //defaults to 0 if invalid
         let bill = Double(billField.text!) ?? 0
         
@@ -42,7 +49,14 @@ class ViewController: UIViewController {
         
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
-        
+//        splitter()
+    }
+    func splitter(){
+//        let splitTotalArr = [split2, split3, split4, split5, split6]
+        for index in 0...5{
+            print("\(index)")
+        }
+        return;
     }
 }
 

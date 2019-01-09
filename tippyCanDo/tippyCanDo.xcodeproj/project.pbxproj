@@ -14,6 +14,7 @@
 		B042B52721E591C0005AE060 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B042B52521E591C0005AE060 /* LaunchScreen.storyboard */; };
 		B042B53221E591C0005AE060 /* tippyCanDoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B042B53121E591C0005AE060 /* tippyCanDoTests.swift */; };
 		B042B53D21E591C0005AE060 /* tippyCanDoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B042B53C21E591C0005AE060 /* tippyCanDoUITests.swift */; };
+		B0CC6AA921E5B69E00CBFA98 /* Person.png in Resources */ = {isa = PBXBuildFile; fileRef = B0CC6AA821E5B69E00CBFA98 /* Person.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		B042B53821E591C0005AE060 /* tippyCanDoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tippyCanDoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B042B53C21E591C0005AE060 /* tippyCanDoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tippyCanDoUITests.swift; sourceTree = "<group>"; };
 		B042B53E21E591C0005AE060 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0CC6AA821E5B69E00CBFA98 /* Person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Person.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				B042B51C21E591BF005AE060 /* AppDelegate.swift */,
 				B042B51E21E591BF005AE060 /* ViewController.swift */,
 				B042B52021E591BF005AE060 /* Main.storyboard */,
+				B0CC6AA821E5B69E00CBFA98 /* Person.png */,
 				B042B52321E591C0005AE060 /* Assets.xcassets */,
 				B042B52521E591C0005AE060 /* LaunchScreen.storyboard */,
 				B042B52821E591C0005AE060 /* Info.plist */,
@@ -229,6 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0CC6AA921E5B69E00CBFA98 /* Person.png in Resources */,
 				B042B52721E591C0005AE060 /* LaunchScreen.storyboard in Resources */,
 				B042B52421E591C0005AE060 /* Assets.xcassets in Resources */,
 				B042B52221E591BF005AE060 /* Main.storyboard in Resources */,
