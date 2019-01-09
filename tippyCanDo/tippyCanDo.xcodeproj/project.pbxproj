@@ -49,6 +49,7 @@
 		B042B53C21E591C0005AE060 /* tippyCanDoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tippyCanDoUITests.swift; sourceTree = "<group>"; };
 		B042B53E21E591C0005AE060 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0CC6AA821E5B69E00CBFA98 /* Person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Person.png; sourceTree = "<group>"; };
+		B0CC6AAA21E5C88A00CBFA98 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +80,7 @@
 		B042B51021E591BF005AE060 = {
 			isa = PBXGroup;
 			children = (
+				B0CC6AAA21E5C88A00CBFA98 /* README.md */,
 				B042B51B21E591BF005AE060 /* tippyCanDo */,
 				B042B53021E591C0005AE060 /* tippyCanDoTests */,
 				B042B53B21E591C0005AE060 /* tippyCanDoUITests */,
