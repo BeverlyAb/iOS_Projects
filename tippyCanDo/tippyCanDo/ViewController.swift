@@ -15,11 +15,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipControl: UISegmentedControl!
     
-    @IBOutlet weak var split2: UITextField!
-    @IBOutlet weak var split3: UITextField!
-    @IBOutlet weak var split4: UITextField!
-    @IBOutlet weak var split5: UITextField!
-    @IBOutlet weak var split6: UITextField!
+    @IBOutlet weak var split2: UILabel!
+    @IBOutlet weak var split3: UILabel!
+    @IBOutlet weak var split4: UILabel!
+    @IBOutlet weak var split5: UILabel!
+    @IBOutlet weak var split6: UILabel!
     
     
     override func viewDidLoad() {
@@ -49,14 +49,15 @@ class ViewController: UIViewController {
         
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
-//        splitter()
+        splitter(total : total)
     }
-    func splitter(){
-//        let splitTotalArr = [split2, split3, split4, split5, split6]
-        for index in 0...5{
-            print("\(index)")
+    
+    func splitter(total:Double){
+    //splits the total bill among n people
+       let splitTotalArr = [split2, split3, split4, split5, split6]
+        for index in 0...4 {
+            splitTotalArr[index]!.text = String(format: "$%.2f", total/Double(index+2))
         }
-        return;
     }
 }
 
