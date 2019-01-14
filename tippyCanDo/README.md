@@ -29,7 +29,7 @@ Here's a walkthrough of implemented user stories:
 
 {%[TippyCanDo demo](https://imgur.com/gallery/35H5HBb)%}
 
-<img src='https://imgur.com/gallery/35H5HBb.gif' title='TippyCanDo Walkthrough' width='' alt='TippyCanDo Walkthrough' />
+<img src='https://i.imgur.com/vVAAeH3.gif' title='TippyCanDo Walkthrough' width='' alt='TippyCanDo Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
