@@ -27,7 +27,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://imgur.com/gallery/35H5HBb'title='TippyCanDo Demo' width='' alt='TippyCanDo Demo' />
+<img src='https://imgur.com/gallery/35H5HBb' title='TippyCanDo Demo' width='' alt='TippyCanDo Demo' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
