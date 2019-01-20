@@ -18,13 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_lrg" translatesAutoresizingMaskIntoConstraints="NO" id="Pzg-tD-yZ4">
-                                <rect key="frame" x="105" y="258" width="147" height="151"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_lrg" translatesAutoresizingMaskIntoConstraints="NO" id="Pzg-tD-yZ4">
+                                <rect key="frame" x="116" y="258" width="136" height="151"/>
                                 <edgeInsets key="layoutMargins" top="8" left="18" bottom="8" right="8"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Pzg-tD-yZ4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="116" id="CDn-YI-n64"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pzg-tD-yZ4" secondAttribute="trailing" constant="123" id="GPL-sY-HV9"/>
+                            <constraint firstItem="Pzg-tD-yZ4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="238" id="IDJ-8d-AMh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Pzg-tD-yZ4" secondAttribute="bottom" constant="258" id="zBP-53-Vsv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -34,6 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo_lrg" width="1024" height="1024"/>
+        <image name="logo_lrg" width="737" height="643"/>
     </resources>
 </document>
