@@ -9,10 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    @IBOutlet weak var tableView: UITableView!
     
-    //movie data
-    let movies : [String] = ["Ralph", "Spider"]
+    @IBOutlet weak var tableView: UITableView!
     
     //arr of dict
     var myMovies = [[String:Any]]()
@@ -28,14 +26,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if let error = error {
                 print(error.localizedDescription)
             } else if let data = data {
-                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as!  [[String:Any]]
+                  // TODO: Get the array of movies
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 
-                //access key
-                self.myMovies = dataDictionary["results"] as! [String:Any]
-                // TODO: Get the array of movies
-                // TODO: Store the movies in a property to use elsewhere
+                // TODO: Store the movies in a property to use elsewhere with "results" as key
+                self.myMovies = dataDictionary["results"] as! [[String:Any]]
+                
                 // TODO: Reload your table view data
-                
+                self.tableView.reloadData()
             }
         }
         task.resume()
@@ -48,16 +46,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return movie total
-        return movies.count
+        return myMovies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! MovieCell
         
-        let movie = movies[indexPath.row]
+        let movie = myMovies[indexPath.row]
+        let title = movie["title"] as!  String
         
-        cell.movieNameLabel.text = movie
+        cell.movieNameLabel.text = title
         return cell
     }
     
