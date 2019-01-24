@@ -120,6 +120,41 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B07D5B0921F9A69600B3077D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B089026A21F992E5006B3368 /* LaunchScreen.storyboard */,
+				B089026521F992E4006B3368 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		B07D5B0B21F9A6B900B3077D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B07D5B0521F99F2700B3077D /* DateUtility.swift */,
+				B07D5B0621F99F2700B3077D /* API.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B07D5B0C21F9A6D100B3077D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B07D5B0121F995AB00B3077D /* PhotoCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B07D5B0D21F9A6DC00B3077D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B07D5B0321F9962800B3077D /* DetailViewController.swift */,
+				B07D5AFF21F9938600B3077D /* PhotosViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		B089025521F992E4006B3368 = {
 			isa = PBXGroup;
 			children = (
@@ -145,15 +180,12 @@
 		B089026021F992E4006B3368 /* Tumblr */ = {
 			isa = PBXGroup;
 			children = (
+				B07D5B0D21F9A6DC00B3077D /* Controllers */,
+				B07D5B0C21F9A6D100B3077D /* Cell */,
+				B07D5B0B21F9A6B900B3077D /* Helpers */,
+				B07D5B0921F9A69600B3077D /* Storyboards */,
 				B089026121F992E4006B3368 /* AppDelegate.swift */,
-				B07D5B0121F995AB00B3077D /* PhotoCell.swift */,
-				B089026521F992E4006B3368 /* Main.storyboard */,
-				B07D5B0321F9962800B3077D /* DetailViewController.swift */,
-				B07D5AFF21F9938600B3077D /* PhotosViewController.swift */,
 				B089026821F992E5006B3368 /* Assets.xcassets */,
-				B07D5B0621F99F2700B3077D /* API.swift */,
-				B07D5B0521F99F2700B3077D /* DateUtility.swift */,
-				B089026A21F992E5006B3368 /* LaunchScreen.storyboard */,
 				B089026D21F992E5006B3368 /* Info.plist */,
 			);
 			path = Tumblr;
