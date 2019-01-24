@@ -72,6 +72,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="seW-Ft-wg5"/>
                     </view>
+                    <connections>
+                        <outlet property="detailImg" destination="rEx-0T-3C7" id="MWE-hf-U5B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E2A-xF-EAJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
