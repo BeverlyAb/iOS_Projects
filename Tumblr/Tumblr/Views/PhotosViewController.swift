@@ -12,6 +12,7 @@ class PhotosViewController: UIViewController {
 
     @IBOutlet weak var displayImg: UIImageView!
     
+    let image = displayImg.image
     
     override func viewDidLoad() {
         super.viewDidLoad()
