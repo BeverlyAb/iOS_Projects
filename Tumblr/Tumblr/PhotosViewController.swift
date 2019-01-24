@@ -43,6 +43,7 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        getPosts()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
