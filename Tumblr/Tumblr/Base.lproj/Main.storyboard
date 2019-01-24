@@ -38,7 +38,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="mainImage" destination="iqk-7n-KYA" id="CFX-27-Gyz"/>
-                                            <segue destination="aIm-kq-Mnf" kind="show" id="hd6-Zm-9qv"/>
+                                            <segue destination="aIm-kq-Mnf" kind="show" id="ZYw-PO-SyP"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -48,6 +48,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="ltn-K4-kRc"/>
+                    <connections>
+                        <outlet property="tableView" destination="H2Y-im-vg2" id="sH1-nv-6Gu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,11 +7,29 @@
 //
 
 import UIKit
+import AlamofireImage
 
-class PhotosViewController: UIViewController {
-
+class PhotosViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var tableView: UITableView!
     var posts : [[String : Any]] = []
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return posts.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell") as! PhotoCell
+        
+        let post = posts[indexPath.row]
+        let baseUrl = "https://image.tmdb.org/t/p/w185"
+        let posterPath = post["poster_path"] as! String
+        
+        let posterUrl = URL(string: baseUrl + posterPath)
+        cell.mainImage.af_setImage(withURL: posterUrl!)
+        return cell
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Network request snippet
@@ -23,14 +41,18 @@ class PhotosViewController: UIViewController {
                 print(error.localizedDescription)
             } else if let data = data,
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                print(dataDictionary)
+                
                 
                 // TODO: Get the posts and store in posts property
-                
+                self.posts = dataDictionary["response"] as! [[String : Any]]
                 // TODO: Reload the table view
+                self.tableView.reloadData()
             }
         }
         task.resume()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.reloadData()
     }
 
 }
