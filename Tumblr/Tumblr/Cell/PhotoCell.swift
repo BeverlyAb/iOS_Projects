@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class PhotoCell: UITableViewCell {
-
+    
     @IBOutlet weak var mainImage: UIImageView!
-
+    
 }

@@ -1,13 +1,12 @@
 //
-//  DataUtility.swift
+//  DateUtility.swift
 //  Tumblr
 //
-//  Created by Memo on 10/12/18.
-//  Copyright © 2018 Membriux. All rights reserved.
+//  Created by Beverly Abadines on 1/24/19.
+//  Copyright © 2019 BeverlyAb. All rights reserved.
 //
 
 import Foundation
-
 
 struct DateUtil {
     

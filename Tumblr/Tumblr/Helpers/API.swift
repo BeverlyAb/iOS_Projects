@@ -1,13 +1,12 @@
 //
-//  APIs.swift
-//  tumblerLab
+//  API.swift
+//  Tumblr
 //
-//  Created by Memo on 1/10/19.
-//  Copyright © 2019 Membriux. All rights reserved.
+//  Created by Beverly Abadines on 1/24/19.
+//  Copyright © 2019 BeverlyAb. All rights reserved.
 //
 
 import Foundation
-
 
 
 // –––––    API Call for Tumblr Posts    ––––
@@ -36,7 +35,7 @@ struct API {
                 posts = responseDictionary["posts"] as! [[String: Any]]
                 
                 return completion(posts)
-            
+                
             }
         }
         task.resume()}

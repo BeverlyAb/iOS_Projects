@@ -19,11 +19,13 @@ class PhotosViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         getPosts()
+        
     }
     
-    func getPosts(){
+    // Get posts from Tumblr API
+    func getPosts() {
         API.getPosts() { (posts) in
-            if let posts = posts{
+            if let posts = posts {
                 self.posts = posts
                 self.tableView.reloadData()
             }
@@ -32,13 +34,13 @@ class PhotosViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let photoDetailVC = segue.destination as! DetailViewController
-        
+
         let cell = sender as! PhotoCell
-        
+
         let image = cell.mainImage.image
-        
-        photoDetailVC.image = image
-        
+
+        photoDetailVC.imagePassed = image
+
     }
 
 }
@@ -48,6 +50,7 @@ extension PhotosViewController: UITableViewDataSource, UITableViewDelegate {
     
     // Basic TableViewFunctionality
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(posts.count)
         return posts.count
     }
     

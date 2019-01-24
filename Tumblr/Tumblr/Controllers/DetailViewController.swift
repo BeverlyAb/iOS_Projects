@@ -12,10 +12,10 @@ class DetailViewController: UITableViewController {
 
     @IBOutlet weak var detailImg: UIImageView!
     
-    var image : UIImage!
-   
+    var imagePassed : UIImage!
     override func viewDidLoad() {
         super.viewDidLoad()
-            detailImg.image = image
+        
+        detailImg.image = imagePassed
         }
 }
