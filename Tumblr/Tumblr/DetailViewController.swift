@@ -8,14 +8,16 @@
 
 import UIKit
 
-class DetailViewController: UITableViewController {
+class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailImg: UIImageView!
     
     var imagePassed : UIImage!
-   
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-            detailImg.image = imagePassed
+        
+        detailImg.image = imagePassed
         }
 }
