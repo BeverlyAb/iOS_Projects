@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Movies-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Flix" customModuleProvider="target" sceneMemberID="viewController">
@@ -94,7 +94,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="DtS-pF-tzg"/>
+                    <navigationItem key="navigationItem" title="Movies" id="DtS-pF-tzg"/>
                     <connections>
                         <outlet property="tableView" destination="Zj5-77-wwB" id="dzE-IV-rly"/>
                     </connections>
@@ -102,38 +102,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="92.753623188405811" y="898.36956521739137"/>
-        </scene>
-        <!--Item 2-->
-        <scene sceneID="Ftf-VV-LaU">
-            <objects>
-                <viewController id="PFr-4v-izH" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0iw-Np-I0x">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.5736758434" green="0.69929970850000001" blue="0.55291985369999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="NWA-aI-0nq"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="ARf-1Q-hUX"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rEm-AF-Ewr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1754" y="-433"/>
-        </scene>
-        <!--Item 1-->
-        <scene sceneID="HDR-9W-y7p">
-            <objects>
-                <viewController id="bmD-tU-kQC" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qTm-vG-cNC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.58427093259999996" blue="0.52041483769999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="ZDw-Ud-qgF"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="UTV-3o-3qJ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Xm-bI-HuT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1754" y="-1105"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="EnN-ad-v4b">
@@ -145,14 +113,29 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="bmD-tU-kQC" kind="relationship" relationship="viewControllers" id="sPc-uw-E8H"/>
-                        <segue destination="PFr-4v-izH" kind="relationship" relationship="viewControllers" id="wsS-yD-EEU"/>
                         <segue destination="AZf-RB-XUv" kind="relationship" relationship="viewControllers" id="bkY-Ux-rcY"/>
+                        <segue destination="68h-h9-1nR" kind="relationship" relationship="viewControllers" id="OIG-34-yHj"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o94-E9-Dld" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="93" y="-694"/>
+            <point key="canvasLocation" x="519" y="-638"/>
+        </scene>
+        <!--Superhero-->
+        <scene sceneID="zPo-jr-b7A">
+            <objects>
+                <viewController id="aWT-eD-u3z" customClass="MovieGridViewController" customModule="Flix" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gWF-Ae-sCa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="834-sC-7Ks"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Superhero" id="7iP-ea-FgM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oN0-sl-E4x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="959" y="898"/>
         </scene>
         <!--Movie Details View Controller-->
         <scene sceneID="OxO-a4-7nP">
@@ -199,11 +182,11 @@
             </objects>
             <point key="canvasLocation" x="93" y="1660"/>
         </scene>
-        <!--Item-->
+        <!--Now Playing-->
         <scene sceneID="WEN-Vn-rhN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AZf-RB-XUv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="d27-gj-9bz"/>
+                    <tabBarItem key="tabBarItem" title="Now Playing" image="now_playing_tabbar_item.png" id="d27-gj-9bz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ITY-DJ-xC5">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -218,5 +201,28 @@
             </objects>
             <point key="canvasLocation" x="93.599999999999994" y="117.39130434782609"/>
         </scene>
+        <!--Superhero-->
+        <scene sceneID="fHm-yA-2HR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="68h-h9-1nR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Superhero" image="superhero_tabbar_item" id="whx-8W-9oh"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oak-eJ-sRH">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="aWT-eD-u3z" kind="relationship" relationship="rootViewController" id="aJc-uy-vss"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IFS-fA-pJM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="959" y="117"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="now_playing_tabbar_item.png" width="21" height="21"/>
+        <image name="superhero_tabbar_item" width="21" height="23"/>
+    </resources>
 </document>
