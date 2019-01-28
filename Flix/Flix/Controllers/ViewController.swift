@@ -27,13 +27,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if let error = error {
                 print(error.localizedDescription)
             } else if let data = data {
-                  // TODO: Get the array of movies
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 
-                // TODO: Store the movies in a property to use elsewhere with "results" as key
                 self.myMovies = dataDictionary["results"] as! [[String:Any]]
-                
-                // TODO: Reload your table view data
                 self.tableView.reloadData()
             }
         }
