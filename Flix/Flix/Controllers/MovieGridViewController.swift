@@ -34,9 +34,18 @@ class MovieGridViewController: UIViewController{
     
         collectionView.delegate = self
         collectionView.dataSource = self
-    //    collectionView.reloadData()
         
-    
+        
+        //Layout Settings ------------------------------------------------------
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        //controls space in btwn rows
+        layout.minimumLineSpacing = 40
+        
+        layout.minimumInteritemSpacing = 4
+        //expects width and height
+        let width = (view.frame.size.width / 3) - 4 // divivdes into 3 col
+        layout.itemSize = CGSize(width: width, height : width * 1.5)
+        
     }
 }
 
