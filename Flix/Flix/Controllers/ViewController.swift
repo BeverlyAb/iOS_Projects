@@ -67,11 +67,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.posterView.af_setImage(withURL: posterUrl!)
         return cell
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let cell = sender as! UITableViewCell

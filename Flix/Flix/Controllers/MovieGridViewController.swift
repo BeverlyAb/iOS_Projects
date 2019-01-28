@@ -47,6 +47,18 @@ class MovieGridViewController: UIViewController{
         layout.itemSize = CGSize(width: width, height : width * 1.5)
         
     }
+    //segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! UICollectionViewCell
+        let indexPath = collectionView.indexPath(for: cell)!
+        let movie = myMovies[indexPath.item]
+        
+        let detailsViewController = segue.destination as! GridDetatilsViewController
+        
+        detailsViewController.movie = movie
+        
+        collectionView.deselectItem(at: indexPath, animated: true)
+    }
 }
 
 
@@ -69,6 +81,7 @@ UICollectionViewDataSource{
         
         return cell
     }
+    
     
     
 }
