@@ -28,7 +28,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="109"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aPG-Zd-JOs" id="73b-HX-EgX">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="108.66666666666667"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="109"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="245" preservesSuperviewLayoutMargins="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gHX-eG-jZV">
@@ -36,7 +36,7 @@
                                                     <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uGQ-Ja-iK9">
-                                                    <rect key="frame" x="110" y="39" width="283" height="61"/>
+                                                    <rect key="frame" x="110" y="39" width="283" height="60"/>
                                                     <viewLayoutGuide key="safeArea" id="ivb-Yw-BnO"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
@@ -75,6 +75,7 @@
                                             <outlet property="posterView" destination="gHX-eG-jZV" id="ZZc-bt-t35"/>
                                             <outlet property="sumLabel" destination="uGQ-Ja-iK9" id="pFb-Ru-MtI"/>
                                             <outlet property="titleLabel" destination="4kd-Yl-kxE" id="UWf-mq-RQn"/>
+                                            <segue destination="FAt-8A-XAp" kind="show" id="c6p-2K-4Iy"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -99,6 +100,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1030.4347826086957" y="115.7608695652174"/>
+        </scene>
+        <!--Movie Details View Controller-->
+        <scene sceneID="OxO-a4-7nP">
+            <objects>
+                <viewController id="FAt-8A-XAp" customClass="MovieDetailsViewController" customModule="Flix" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q4m-2V-7OX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="sah-wy-aG8"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qpd-9Z-hHc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1749" y="117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WEN-Vn-rhN">
