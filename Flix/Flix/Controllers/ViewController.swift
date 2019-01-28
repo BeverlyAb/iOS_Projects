@@ -78,7 +78,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("Loading")
         let cell = sender as! UITableViewCell
         let indexPath = tableView.indexPath(for: cell)!
         let movie = myMovies[indexPath.row]
