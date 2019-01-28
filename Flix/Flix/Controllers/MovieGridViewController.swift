@@ -35,6 +35,8 @@ class MovieGridViewController: UIViewController{
         collectionView.delegate = self
         collectionView.dataSource = self
     //    collectionView.reloadData()
+        
+    
     }
 }
 
