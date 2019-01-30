@@ -40,7 +40,7 @@ class ViewController: UIViewController {
     
     func getMovies(){
       Network.getNowPlaying(){ (myMovies) in
-            self.myMovies = myMovies
+        self.myMovies = myMovies!
             self.tableView.reloadData()
         }
     }
