@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     //arr of dict
     var myMovies = [[String:Any]]()
+    let net = Network(urlName: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,6 @@ class ViewController: UIViewController {
     }
     
     func getMovies(){
-        let net = Network(urlName: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")
         net.getNowPlaying(){ (myMovies) in
             self.myMovies = myMovies!
             self.tableView.reloadData()
@@ -65,14 +65,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         cell.sumLabel.text = sum
         
         let baseUrl = "https://image.tmdb.org/t/p/w185"
-        let posterPath = movie["poster_path"] as! String
-        
-        //posterPath + baseUrl = special type of URL (has valid form of "https")
-        let posterUrl = URL(string: baseUrl + posterPath)
-        
-        //gets img from url
-        //modify image = aspect fill and clip to bounds
-        cell.posterView.af_setImage(withURL: posterUrl!)
+        cell.posterView.af_setImage(withURL:net.getPosterUrl(name: baseUrl, movie: movie)!)
         return cell
     }
 }

@@ -12,6 +12,7 @@ import AlamofireImage
 class MovieGridViewController: UIViewController{
 
     var myMovies = [[String: Any]]()
+    let net = Network(urlName: "https://api.themoviedb.org/3/movie/297762/similar?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")
     @IBOutlet var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -35,7 +36,6 @@ class MovieGridViewController: UIViewController{
     }
     
     func getMovies(){
-        let net = Network(urlName: "https://api.themoviedb.org/3/movie/297762/similar?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")
         net.getNowPlaying(){ (myMovies) in
             self.myMovies = myMovies!
             self.collectionView.reloadData()
@@ -71,9 +71,7 @@ UICollectionViewDataSource{
         let movie = myMovies[indexPath.item]
         
         let baseUrl = "https://image.tmdb.org/t/p/w185"
-        let posterPath = movie["poster_path"] as! String
-        let posterUrl = URL(string: baseUrl + posterPath)
-        cell.posterView.af_setImage(withURL: posterUrl!)
+        cell.posterView.af_setImage(withURL:net.getPosterUrl(name: baseUrl, movie: movie)!)
         
         return cell
     }

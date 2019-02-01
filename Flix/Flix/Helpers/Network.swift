@@ -31,4 +31,14 @@ struct Network{
         }
         task.resume()
     }
+    
+    func getPosterUrl(name : String,movie:[String:Any])->URL?{
+        
+        let posterPath = movie["poster_path"] as! String
+        
+        //posterPath + baseUrl = special type of URL (has valid form of "https")
+        let posterUrl = URL(string: name + posterPath)
+        return posterUrl
+    }
+    
 }
