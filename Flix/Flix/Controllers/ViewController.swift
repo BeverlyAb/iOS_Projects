@@ -5,7 +5,6 @@
 //  Created by Beverly Abadines on 1/20/19.
 //  Copyright © 2019 BeverlyAb. All rights reserved.
 //
-
 import UIKit
 import AlamofireImage
 
@@ -25,7 +24,7 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.reloadData()
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let cell = sender as! UITableViewCell
         let indexPath = tableView.indexPath(for: cell)!
@@ -39,8 +38,9 @@ class ViewController: UIViewController {
     }
     
     func getMovies(){
-      Network.getNowPlaying(){ (myMovies) in
-        self.myMovies = myMovies!
+        let net = Network(urlName: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")
+        net.getNowPlaying(){ (myMovies) in
+            self.myMovies = myMovies!
             self.tableView.reloadData()
         }
     }
@@ -63,10 +63,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
         let sum = movie["overview"] as! String
         cell.sumLabel.text = sum
-       
+        
         let baseUrl = "https://image.tmdb.org/t/p/w185"
         let posterPath = movie["poster_path"] as! String
-
+        
         //posterPath + baseUrl = special type of URL (has valid form of "https")
         let posterUrl = URL(string: baseUrl + posterPath)
         
@@ -74,7 +74,5 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         //modify image = aspect fill and clip to bounds
         cell.posterView.af_setImage(withURL: posterUrl!)
         return cell
-        }
+    }
 }
-
-
