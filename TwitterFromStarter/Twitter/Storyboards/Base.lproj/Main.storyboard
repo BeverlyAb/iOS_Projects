@@ -113,6 +113,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Home" id="1op-3e-crn">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="y6P-u7-qVF">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="logoutButton:" destination="Gj7-oz-gMR" id="5ft-rE-ngH"/>
                             </connections>

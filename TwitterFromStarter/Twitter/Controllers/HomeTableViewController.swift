@@ -11,12 +11,56 @@ import UIKit
 class HomeTableViewController: UITableViewController {
 
     var tweetArr = [NSDictionary]()
-    var numTweet : Int!
+    var numTweet : Int! = 5
+    let staticNum = 5
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // tableView.delegate = self
+        //tableView.dataSource = self
+        loadTweet()
+        
+        //refresh
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
+        tableView.insertSubview(refreshControl, at:0)
+        
+    }
     
     func loadTweet(){
         let homeUrl = "https://api.twitter.com/1.1/statuses/home_timeline.json"
-        let myParam = ["count" : 1]
+        let myParam = ["count" : numTweet]
         
+        //tweets is the expected dict output
+        TwitterAPICaller.client?.getDictionariesRequest(url: homeUrl, parameters: myParam, success: { (tweets: [NSDictionary]) in
+            self.tweetArr.removeAll()
+            for tweet in tweets{
+                self.tweetArr.append(tweet)
+            }
+            //SUPER IMPORTANT DO NOT FORGET
+            self.tableView.reloadData()
+
+            print("Loaded tweets")
+        }, failure: { (Error) in
+            print("Could not load tweets")
+        })
+    }
+    
+    
+    //Refresh
+    @objc func onRefresh(_ refreshControl: UIRefreshControl) {
+        tweetArr.removeAll()
+        self.tableView.reloadData()
+        loadTweet()
+        refreshControl.endRefreshing()
+    }
+    
+    //endless scroll of tweets
+    func loadInfTweet(){
+        let homeUrl = "https://api.twitter.com/1.1/statuses/home_timeline.json"
+        numTweet = numTweet + 5
+        
+        let myParam = ["count" : numTweet]
         
         //tweets is the expected dict output
         TwitterAPICaller.client?.getDictionariesRequest(url: homeUrl, parameters: myParam, success: { (tweets: [NSDictionary]) in
@@ -28,28 +72,14 @@ class HomeTableViewController: UITableViewController {
         }, failure: { (Error) in
             print("Could not load tweets")
         })
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-       // tableView.delegate = self
-        //tableView.dataSource = self
-        loadTweet()
-        
-        //refresh
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
-        tableView.insertSubview(refreshControl, at:0)
         
     }
     
-    //Refresh
-    @objc func onRefresh(_ refreshControl: UIRefreshControl) {
-        tweetArr.removeAll()
-        self.tableView.reloadData()
-        loadTweet()
-        refreshControl.endRefreshing()
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //if indexPath.row + 1 == staticNum {
+        if indexPath.row + 1 == tweetArr.count {
+            loadInfTweet()
+        }
     }
     
     @IBAction func logoutButton(_ sender: Any) {
@@ -65,7 +95,8 @@ class HomeTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
-        //cell.tweetText.text = tweetArr[indexPath.row]["text"] as! String
+        cell.tweetText.text = tweetArr[indexPath.row]["text"] as! String
+     
         return cell
     }
 
@@ -74,7 +105,8 @@ class HomeTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1//tweetArr.count
+        //return staticNum
+        return tweetArr.count
     }
 
 
