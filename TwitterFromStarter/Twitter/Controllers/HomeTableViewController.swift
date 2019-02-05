@@ -11,23 +11,30 @@ import UIKit
 class HomeTableViewController: UITableViewController {
 
     var tweetArr = [NSDictionary]()
-    var numTweet : Int! = 5
-    let staticNum = 5
+    var numTweet = 10
+    var staticNum = 5
+    let refreshController = UIRefreshControl()
+    
+    @IBAction func logoutButton(_ sender: Any) {
+        TwitterAPICaller.client?.logout()
+        
+        //dismiss =make sure Login closes back to Login, nil = don't want anything to happen once it's gone
+        self.dismiss(animated: true, completion: nil)
+        
+        //lose user info. Make sure to use same key
+        UserDefaults.standard.set(false, forKey:"userLoggedIn")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // tableView.delegate = self
-        //tableView.dataSource = self
         loadTweet()
         
         //refresh
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
-        tableView.insertSubview(refreshControl, at:0)
-        
+        refreshController.addTarget(self, action: #selector(loadTweet), for: .valueChanged)
+        tableView.refreshControl = refreshController
     }
     
-    func loadTweet(){
+    @objc func loadTweet(){
         let homeUrl = "https://api.twitter.com/1.1/statuses/home_timeline.json"
         let myParam = ["count" : numTweet]
         
@@ -39,20 +46,12 @@ class HomeTableViewController: UITableViewController {
             }
             //SUPER IMPORTANT DO NOT FORGET
             self.tableView.reloadData()
-
             print("Loaded tweets")
+        
         }, failure: { (Error) in
             print("Could not load tweets")
         })
-    }
-    
-    
-    //Refresh
-    @objc func onRefresh(_ refreshControl: UIRefreshControl) {
-        tweetArr.removeAll()
-        self.tableView.reloadData()
-        loadTweet()
-        refreshControl.endRefreshing()
+        self.refreshController.endRefreshing()
     }
     
     //endless scroll of tweets
@@ -61,42 +60,45 @@ class HomeTableViewController: UITableViewController {
         numTweet = numTweet + 5
         
         let myParam = ["count" : numTweet]
-        
         //tweets is the expected dict output
         TwitterAPICaller.client?.getDictionariesRequest(url: homeUrl, parameters: myParam, success: { (tweets: [NSDictionary]) in
             self.tweetArr.removeAll()
             for tweet in tweets{
                 self.tweetArr.append(tweet)
             }
+            //SUPER IMPORTANT DO NOT FORGET
+            self.tableView.reloadData()
             print("Loaded tweets")
+            
         }, failure: { (Error) in
             print("Could not load tweets")
         })
-        
+        self.refreshController.endRefreshing()
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        //if indexPath.row + 1 == staticNum {
-        if indexPath.row + 1 == tweetArr.count {
-            loadInfTweet()
+        print(indexPath.row)
+        if indexPath.row  == 4 {
+            print("Row Index ", indexPath.row)
+            staticNum = staticNum + numTweet
         }
+//        if indexPath.row + 1 == tweetArr.count {
+//            loadInfTweet()
+//        }
     }
-    
-    @IBAction func logoutButton(_ sender: Any) {
-        TwitterAPICaller.client?.logout()
-        
-        //dismiss =make sure Login closes back to Login, nil = don't want anything to happen once it's gone
-        self.dismiss(animated: true, completion: nil)
-        
-        //lose user info. Make sure to use same key
-        UserDefaults.standard.set(false, forKey:"userLoggedIn")
-    }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
-        cell.tweetText.text = tweetArr[indexPath.row]["text"] as! String
-     
+    
+        cell.tweetText.text = tweetArr[indexPath.row]["text"] as? String
+        let user = tweetArr[indexPath.row]["user"] as! NSDictionary
+        cell.userName.text = user["name"] as? String
+        let imageURL = URL(string: (user["profile_image_url_https"] as? String)!)
+        let data = try? Data(contentsOf: imageURL!)
+
+        if let imageData = data{
+            cell.profileImg.image = UIImage(data : imageData)
+        }
         return cell
     }
 
@@ -105,7 +107,8 @@ class HomeTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return staticNum
+//        print("staticNum " ,staticNum)
+//        return staticNum
         return tweetArr.count
     }
 
