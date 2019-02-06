@@ -25,10 +25,10 @@ The following **bonus** features are implemented:
 Here's a walkthrough of implemented user stories:
 Displays basic functionality of logging in and out, 
 restarting, refreshing, and alerting users without it tweets loaded.<br/>
-<img src='https://i.imgur.com/o9vzOVP.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/o9vzOVP.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' /><br/>
 
-Displays images when they finally do load\n
-<img src='https://i.imgur.com/846kxjG.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+Displays images when they finally do load\n<br/>
+<img src='https://i.imgur.com/846kxjG.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' /><br/>
 
 Notes:
 Despite running the same code, the TwitterCallerAPI only sometimes loads tweets. Additionally, changes to 
