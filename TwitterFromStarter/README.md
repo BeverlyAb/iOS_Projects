@@ -23,7 +23,8 @@ The following **bonus** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-Displays basic functionality of logging in and out, restarting, refreshing, and alerting users.
+Displays basic functionality of logging in and out, 
+restarting, refreshing, and alerting users without it tweets loaded.
 <img src='https://i.imgur.com/o9vzOVP.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 Displays images when they finally do load
