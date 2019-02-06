@@ -47,7 +47,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Lr-eS-IhB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1116" y="65"/>
+            <point key="canvasLocation" x="-50" y="-749"/>
         </scene>
         <!--HomeTableViewController-->
         <scene sceneID="IKW-O1-AoM">
@@ -120,6 +120,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Tweet" id="TBM-zi-9an">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="sPQ-aj-HSW" kind="presentation" id="vuG-Js-DEQ"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -127,10 +130,10 @@
             </objects>
             <point key="canvasLocation" x="903.20000000000005" y="65.217391304347828"/>
         </scene>
-        <!--Tweet View Controller-->
+        <!--TweetViewController-->
         <scene sceneID="sNb-Fj-ZCB">
             <objects>
-                <viewController id="Lja-gO-JPC" customClass="TweetViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="TweetViewController" id="Lja-gO-JPC" customClass="TweetViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aY4-5N-GTN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -154,16 +157,32 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ok8-Ld-3K2"/>
                     </view>
-                    <navigationItem key="navigationItem" id="tZ1-or-hXR"/>
+                    <navigationItem key="navigationItem" id="tZ1-or-hXR">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="3Tt-ZT-3qu">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cancelButton:" destination="Lja-gO-JPC" id="mxm-pV-4ae"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="SDf-UO-vXB">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="postButton:" destination="Lja-gO-JPC" id="hHs-sQ-dq1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textView" destination="AkJ-nW-Yxb" id="P1Q-jV-qfp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u9A-CP-KU5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="903" y="834"/>
+            <point key="canvasLocation" x="1841" y="889"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--HomeNavigation-->
         <scene sceneID="CmW-9K-eRc">
             <objects>
-                <navigationController id="NAe-FF-uWD" sceneMemberID="viewController">
+                <navigationController title="HomeNavigation" id="NAe-FF-uWD" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="boA-cr-WQD">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -177,14 +196,15 @@
             </objects>
             <point key="canvasLocation" x="-49" y="66"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--TweetNavigation-->
         <scene sceneID="9BY-8x-GHA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sPQ-aj-HSW" sceneMemberID="viewController">
+                <navigationController title="TweetNavigation" automaticallyAdjustsScrollViewInsets="NO" id="sPQ-aj-HSW" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GGP-v7-zTe">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.1148131862" green="0.63301128149999997" blue="0.94878464939999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -193,7 +213,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lSo-kH-6oe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-50" y="835"/>
+            <point key="canvasLocation" x="903" y="890"/>
         </scene>
     </scenes>
     <resources>

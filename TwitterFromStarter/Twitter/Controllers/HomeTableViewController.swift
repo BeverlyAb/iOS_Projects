@@ -46,7 +46,7 @@ class HomeTableViewController: UITableViewController {
             print("Loaded tweets")
         }, failure: { (Error) in
             self.failedToLoad = true
-            print("Could not load tweets")
+            print("Could not load tweets \(Error)")
             self.createAlert(title: "Uh Oh,", message: "Tweets could not be loaded")
         })
         
@@ -72,7 +72,7 @@ class HomeTableViewController: UITableViewController {
             
         }, failure: { (Error) in
             self.failedToLoad = true
-            print("Could not load tweets")
+            print("Could not load tweets \(Error)")
             self.createAlert(title: "Uh Oh,", message: "Tweets could not be loaded")
         })
         //SUPER IMPORTANT DO NOT FORGET
@@ -81,16 +81,16 @@ class HomeTableViewController: UITableViewController {
     }
     //--------------------------calls for endless scrolling--------------------------------
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if failedToLoad{
+        if (failedToLoad){
             print(indexPath.row)
-            if indexPath.row  + 1 == staticNum{
+            if (indexPath.row  + 1 == staticNum){
                 print("Row Index ", indexPath.row)
                 staticNum = staticNum + numTweet
                  self.tableView.reloadData()
                 }
             
         } else{
-            if indexPath.row + 1 == tweetArr.count {
+            if (indexPath.row + 1 == tweetArr.count ){
                 loadInfTweet()
                 //debug
                 self.tableView.reloadData()
@@ -102,7 +102,7 @@ class HomeTableViewController: UITableViewController {
     //--------------tableview (refreshes after reloadData()--------------------------------
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
-        if failedToLoad == false{
+        if (failedToLoad == false){
             cell.tweetText.text = tweetArr[indexPath.row]["text"] as? String
             let user = tweetArr[indexPath.row]["user"] as! NSDictionary
             cell.userName.text = user["name"] as? String
@@ -122,7 +122,7 @@ class HomeTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if failedToLoad  {
+        if (failedToLoad  ){
             print("staticNum " ,staticNum)
             return staticNum
         }
