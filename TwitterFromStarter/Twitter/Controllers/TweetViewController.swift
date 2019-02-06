@@ -11,6 +11,13 @@ import UIKit
 class TweetViewController: UIViewController {
 
     @IBOutlet weak var textView: UITextView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //display keyboard and cursor
+        textView.becomeFirstResponder()
+    }
+    
     @IBAction func cancelButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -28,10 +35,5 @@ class TweetViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
 }

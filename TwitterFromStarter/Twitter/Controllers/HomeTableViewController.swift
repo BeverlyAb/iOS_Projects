@@ -31,6 +31,13 @@ class HomeTableViewController: UITableViewController {
         refreshController.addTarget(self, action: #selector(loadTweet), for: .valueChanged)
         tableView.refreshControl = refreshController
     }
+    
+    //-----------------updates view everytime there is a change------------------
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidLoad() //must always call this FIRST, then add custom
+        self.loadTweet()
+    }
+    
     //--------------------------------loads tweets--------------------------------
     @objc func loadTweet(){
         let homeUrl = "https://api.twitter.com/1.1/statuses/home_timeline.json"
