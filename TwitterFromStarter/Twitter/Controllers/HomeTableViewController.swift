@@ -50,16 +50,16 @@ class HomeTableViewController: UITableViewController {
             }
             self.failedToLoad = false
             print("Loaded tweets")
+            
+            self.tableView.reloadData()
+            self.refreshController.endRefreshing()
         }, failure: { (Error) in
             self.failedToLoad = true
             print("Could not load tweets \(Error)")
             self.createAlert(title: "Uh Oh,", message: "Tweets could not be loaded")
+            self.refreshController.endRefreshing()
         })
         
-      
-        //SUPER IMPORTANT DO NOT FORGET
-        self.tableView.reloadData()
-        self.refreshController.endRefreshing()
     }
     
     //-------------endless scroll of tweets------------------------------------------------
@@ -75,15 +75,14 @@ class HomeTableViewController: UITableViewController {
             }
             self.failedToLoad = false
             print("Loaded tweets")
+            self.tableView.reloadData()
             
         }, failure: { (Error) in
             self.failedToLoad = true
             print("Could not load tweets \(Error)")
             self.createAlert(title: "Uh Oh,", message: "Tweets could not be loaded")
         })
-        //SUPER IMPORTANT DO NOT FORGET
-        self.tableView.reloadData()
-        self.refreshController.endRefreshing()
+     
     }
     //--------------------------calls for endless scrolling--------------------------------
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -143,6 +142,6 @@ class HomeTableViewController: UITableViewController {
             alert.dismiss(animated: true, completion: nil)
         }))
         self.present(alert,animated: true, completion: nil)
-        tableView.reloadData()
+     //   tableView.reloadData()
     }
 }
