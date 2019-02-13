@@ -118,12 +118,19 @@ class HomeTableViewController: UITableViewController {
                 cell.profileImg.image = UIImage(data : imageData)
             }
         }
-        //set fav, id, and retweet
+        //set fav, id, retweet, retweetCount
         cell.favTweet(tweetArr[indexPath.row]["favorited"] as! Bool)
         cell.tweetID = tweetArr[indexPath.row]["id"] as! Int
         cell.reTweet = tweetArr[indexPath.row]["retweeted"] as! Bool
-//        cell.setReTweet(tweetArr[indexPath.row]["retweeted"] as! Bool)
-//
+        cell.reTweetCount.text = "\(tweetArr[indexPath.row]["retweet_count"] as! Int))"
+            //(String(describing: tweetArr[indexPath.row]["retweet_count"] as! Int))
+            
+            
+        
+            
+        
+        print("Num \(cell.reTweetCount)")
+        
         return cell
     }
 

@@ -15,6 +15,10 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var tweetText: UILabel!
     @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var retweetButton: UIButton!
+    
+    @IBOutlet weak var reTweetCount: UILabel!
+    
+    
     var tweetID : Int = -1
     var favorited: Bool = false
     var reTweet : Bool = false
@@ -24,6 +28,7 @@ class TweetCell: UITableViewCell {
             profileImg = tweet.profileImg
             userName.text = tweet.userName.text
             tweetText.text = tweet.tweetText.text
+            reTweetCount.text = tweet.reTweetCount.text
         }
     }
     
@@ -55,25 +60,7 @@ class TweetCell: UITableViewCell {
             retweetButton.setImage(UIImage(named:"swap_vertical_circle_black_54x54"), for: UIControlState.normal)
         }
     }
-//    func reTweet(_ isReTweet:Bool) {
-//        TwitterAPICaller.client?.retweetTweet(tweetID: tweetID, success: {
-//            self.setReTweet(true)
-//        }, failure: { (error) in
-//            print("Retweet failed\n \(error)")
-//        })
-//    }
-//
-//    func setReTweet(_ isReTweet:Bool){
-//        if(isReTweet){
-//            retweetButton.setImage(UIImage(named:"swap_vert_black_54x54"), for: UIControlState.normal)
-//            print("hoy\n")
-//            retweetButton.isEnabled = false
-//        } else{
-//            retweetButton.setImage(UIImage(named:"swap_vertical_circle_black_54x54"), for: UIControlState.normal)
-//            retweetButton.isEnabled = true
-//        }
-//        
-//    }
+
     //toggle button display
     @IBAction func favDisplay(_ sender: Any) {
         let fav = !favorited
@@ -104,13 +91,12 @@ class TweetCell: UITableViewCell {
             }) 
         } else{
             self.reTweet(false)
-            /*TwitterAPICaller.client?.untweetTweet(tweetID: tweetID, success: {
+            TwitterAPICaller.client?.untweetTweet(tweetID: tweetID, success: {
              
             }, failure: { (error) in
                 print("Un-retweet failed \(error)")
-            })*/
+            })
         }
     }
-    
     
 }
