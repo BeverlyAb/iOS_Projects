@@ -11,8 +11,8 @@ import UIKit
 class HomeTableViewController: UITableViewController {
 
     var tweetArr = [NSDictionary]()
-    var numTweet = 5
-    var staticNum = 5
+    var numTweet = 40
+    var staticNum = 40
     let refreshController = UIRefreshControl()
     var failedToLoad = true
     
@@ -118,7 +118,10 @@ class HomeTableViewController: UITableViewController {
                 cell.profileImg.image = UIImage(data : imageData)
             }
         }
-        
+        //set fav and retweet
+        cell.favTweet(tweetArr[indexPath.row]["favorited"] as! Bool)
+        cell.tweetID = tweetArr[indexPath.row]["id"] as! Int
+     //   cell.reTweet(tweetArr[indexPath.row]["retweeted_status"] as! Bool)
         return cell
     }
 
@@ -128,8 +131,10 @@ class HomeTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (failedToLoad){
-            //print("staticNum " ,staticNum)
-            return staticNum
+            print("staticNum " ,staticNum)
+            //return staticNum
+            //need to debug, doesn't work when fav is used
+            return tweetArr.count
         }
         else{
             return tweetArr.count
