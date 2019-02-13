@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import AlamofireImage
 class HomeTableViewController: UITableViewController {
 
     var tweetArr = [NSDictionary]()
@@ -118,10 +118,12 @@ class HomeTableViewController: UITableViewController {
                 cell.profileImg.image = UIImage(data : imageData)
             }
         }
-        //set fav and retweet
+        //set fav, id, and retweet
         cell.favTweet(tweetArr[indexPath.row]["favorited"] as! Bool)
         cell.tweetID = tweetArr[indexPath.row]["id"] as! Int
-     //   cell.reTweet(tweetArr[indexPath.row]["retweeted_status"] as! Bool)
+        cell.reTweet = tweetArr[indexPath.row]["retweeted"] as! Bool
+//        cell.setReTweet(tweetArr[indexPath.row]["retweeted"] as! Bool)
+//
         return cell
     }
 

@@ -73,6 +73,7 @@ class TwitterAPICaller: BDBOAuth1SessionManager {
             failure(error)
         })
     }
+    //--------------------------fav--------------------------------
     //calls create fav API
     func favoriteTweet(tweetID: Int, success: @escaping () -> (), failure: @escaping (Error) -> ()){
         let url = "https://api.twitter.com/1.1/favorites/create.json"
@@ -92,4 +93,27 @@ class TwitterAPICaller: BDBOAuth1SessionManager {
             failure(error)
         })
     }
+    
+    //-------------------------retweet-----------------------------
+    //calls retweet API
+    func retweetTweet(tweetID: Int, success: @escaping () -> (), failure: @escaping (Error) -> ()){
+        let url = "https://api.twitter.com/1.1/statuses/retweet/\(tweetID).json"
+        //let url = "https://twitter.com/btestdummy/status/1095477351243083776"
+        TwitterAPICaller.client?.post(url, parameters:["id":tweetID], progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
+            success()
+        }, failure: { (task: URLSessionDataTask?, error: Error) in
+            failure(error)
+        })
+    }
+    //calls unretweet API
+    func untweetTweet(tweetID: Int, success: @escaping () -> (), failure: @escaping (Error) -> ()){
+        let url = "https://api.twitter.com/1.1/statuses/unretweet/:\(tweetID).json"
+        TwitterAPICaller.client?.post(url, parameters:["id":tweetID], progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
+            success()
+        }, failure: { (task: URLSessionDataTask?, error: Error) in
+            failure(error)
+        })
+    }
+    
+    
 }
