@@ -2,11 +2,12 @@
 //  AppDelegate.swift
 //  Twitter
 //
-//  Created by Beverly Abadines on 1/31/19.
-//  Copyright © 2019 BeverlyAb. All rights reserved.
+//  Created by Dan on 1/3/19.
+//  Copyright © 2019 Dan. All rights reserved.
 //
 
 import UIKit
+import BDBOAuth1Manager
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -40,7 +41,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        TwitterAPICaller.client?.handleOpenUrl(url: url)
+        return true
+    }
 
 }
 
