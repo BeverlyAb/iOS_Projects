@@ -7,14 +7,14 @@
 //
 
 import UIKit
-
+import AlamofireImage
 class HomeTableViewController: UITableViewController {
 
     var tweetArr = [NSDictionary]()
-    var numTweet = 5
-    var staticNum = 5
+    var numTweet = 40
+    var staticNum = 40
     let refreshController = UIRefreshControl()
-    var failedToLoad :Bool = true
+    var failedToLoad = true
     
     @IBAction func logoutButton(_ sender: Any) {
         TwitterAPICaller.client?.logout()
@@ -26,7 +26,6 @@ class HomeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadTweet()
         //refresh
         refreshController.addTarget(self, action: #selector(loadTweet), for: .valueChanged)
         tableView.refreshControl = refreshController
@@ -34,7 +33,7 @@ class HomeTableViewController: UITableViewController {
     
     //-----------------updates view everytime there is a change------------------
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidLoad() //must always call this FIRST, then add custom
+        super.viewDidAppear(true) //must always call this FIRST, then add custom
         self.loadTweet()
     }
     
@@ -51,16 +50,16 @@ class HomeTableViewController: UITableViewController {
             }
             self.failedToLoad = false
             print("Loaded tweets")
+            
+            self.tableView.reloadData()
+            self.refreshController.endRefreshing()
         }, failure: { (Error) in
             self.failedToLoad = true
             print("Could not load tweets \(Error)")
             self.createAlert(title: "Uh Oh,", message: "Tweets could not be loaded")
+            self.refreshController.endRefreshing()
         })
         
-      
-        //SUPER IMPORTANT DO NOT FORGET
-        self.tableView.reloadData()
-        self.refreshController.endRefreshing()
     }
     
     //-------------endless scroll of tweets------------------------------------------------
@@ -76,22 +75,21 @@ class HomeTableViewController: UITableViewController {
             }
             self.failedToLoad = false
             print("Loaded tweets")
+            self.tableView.reloadData()
             
         }, failure: { (Error) in
             self.failedToLoad = true
             print("Could not load tweets \(Error)")
             self.createAlert(title: "Uh Oh,", message: "Tweets could not be loaded")
         })
-        //SUPER IMPORTANT DO NOT FORGET
-        self.tableView.reloadData()
-        self.refreshController.endRefreshing()
+     
     }
     //--------------------------calls for endless scrolling--------------------------------
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if (failedToLoad){
-            print(indexPath.row)
+            //print(indexPath.row)
             if (indexPath.row  + 1 == staticNum){
-                print("Row Index ", indexPath.row)
+                //print("Row Index ", indexPath.row)
                 staticNum = staticNum + numTweet
                  self.tableView.reloadData()
                 }
@@ -109,7 +107,7 @@ class HomeTableViewController: UITableViewController {
     //--------------tableview (refreshes after reloadData()--------------------------------
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
-        if (failedToLoad == false){
+        if (!failedToLoad){
             cell.tweetText.text = tweetArr[indexPath.row]["text"] as? String
             let user = tweetArr[indexPath.row]["user"] as! NSDictionary
             cell.userName.text = user["name"] as? String
@@ -119,19 +117,38 @@ class HomeTableViewController: UITableViewController {
             if let imageData = data{
                 cell.profileImg.image = UIImage(data : imageData)
             }
+            
         }
+        //set fav, id, retweet//
+        cell.favTweet(tweetArr[indexPath.row]["favorited"] as! Bool)
+        cell.tweetID = tweetArr[indexPath.row]["id"] as! Int
+        cell.reTweet = tweetArr[indexPath.row]["retweeted"] as! Bool
+        // retweetCount, favCount
+        let oldRCount = cell.reTweetCount.text
+        let oldFCount = cell.favCount.text
         
+        print("old val : r = \(String(describing: oldRCount)) f = \(String(describing: oldFCount))")
+        cell.reTweetCount.text = (String(describing: tweetArr[indexPath.row]["retweet_count"] as! Int))
+        //"\(tweetArr[indexPath.row]["retweet_count"] as! Int))"
+        cell.favCount.text = (String(describing: tweetArr[indexPath.row]["favorite_count"] as! Int))
+        if(oldRCount != cell.reTweetCount.text || oldFCount != cell.favCount.text){
+            //tableView.reloadData()
+               print("new val : r = \(String(describing: cell.reTweetCount)) f = \(String(describing: cell.favCount))")
+        }
         return cell
     }
 
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (failedToLoad  ){
+        if (failedToLoad){
             print("staticNum " ,staticNum)
-            return staticNum
+            //return staticNum
+            //need to debug, doesn't work when fav is used
+            return tweetArr.count
         }
         else{
             return tweetArr.count
@@ -144,6 +161,6 @@ class HomeTableViewController: UITableViewController {
             alert.dismiss(animated: true, completion: nil)
         }))
         self.present(alert,animated: true, completion: nil)
-        tableView.reloadData()
     }
+    
 }
