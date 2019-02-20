@@ -10,6 +10,11 @@ import UIKit
 
 internal class CameraViewController : UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var commentTextField: UITextField!
+    
+    @IBAction func onSubmitButton(_ sender: Any) {
+    }
     
     
     override internal func viewDidLoad(){

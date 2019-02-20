@@ -63,6 +63,9 @@
                                     <constraint firstAttribute="width" constant="285" id="hdD-T9-WMk"/>
                                 </constraints>
                                 <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="onSubmitButton:" destination="V3Z-SA-Kdd" eventType="touchUpInside" id="dXL-TG-H0K"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -77,6 +80,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MQi-BW-ZK6"/>
                     </view>
+                    <connections>
+                        <outlet property="commentTextField" destination="gnc-Cf-Hm0" id="uGy-BS-gIY"/>
+                        <outlet property="imageView" destination="Zfi-m5-G9X" id="FTg-gw-nAt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUV-Pc-hYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
