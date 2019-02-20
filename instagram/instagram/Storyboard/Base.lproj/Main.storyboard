@@ -40,12 +40,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder-1" translatesAutoresizingMaskIntoConstraints="NO" id="Zfi-m5-G9X">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder-1" translatesAutoresizingMaskIntoConstraints="NO" id="Zfi-m5-G9X">
                                 <rect key="frame" x="65" y="70" width="285" height="285"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="285" id="4Dv-WX-QLJ"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="yWC-XG-TV8" appends="YES" id="wSL-8A-AKK"/>
+                                </connections>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gnc-Cf-Hm0">
                                 <rect key="frame" x="65" y="394" width="285" height="30"/>
@@ -86,6 +89,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUV-Pc-hYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="yWC-XG-TV8">
+                    <connections>
+                        <action selector="onShootButton:" destination="V3Z-SA-Kdd" id="6Lf-gA-DqE"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2796" y="-20"/>
         </scene>
