@@ -25,7 +25,7 @@ class LoginViewController: UIViewController {
             if (user != nil){
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
             } else{
-                print("Error: \(String(describing: error?.localizedDescription))")
+                self.createAlert(title: "Error", message: "\(error!.localizedDescription)")
             }
         }
     }
@@ -40,7 +40,7 @@ class LoginViewController: UIViewController {
             if (success){
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
             } else {
-                print("Error: \(String(describing: error?.localizedDescription))")
+                self.createAlert(title: "Error", message: "\(error!.localizedDescription)")
             }
         }
     }
@@ -52,4 +52,13 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    
+    //------------------------alert to show that Tweets couldn't be loaded-------------
+    func createAlert(title:String, message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert,animated: true, completion: nil)
+    }
 }
