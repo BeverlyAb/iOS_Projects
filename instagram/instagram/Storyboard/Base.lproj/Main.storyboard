@@ -20,11 +20,67 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="jRa-5R-PXy"/>
                     </view>
-                    <navigationItem key="navigationItem" id="x6i-ei-QVK"/>
+                    <navigationItem key="navigationItem" id="x6i-ei-QVK">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="insta_camera_btn" id="YAe-W1-TjN">
+                            <connections>
+                                <segue destination="V3Z-SA-Kdd" kind="presentation" id="cdp-Ua-fYM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EKs-gN-Mvm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2108" y="-19"/>
+        </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="i7u-dG-IFR">
+            <objects>
+                <viewController id="V3Z-SA-Kdd" customClass="CameraViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mqw-Yv-Idt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder-1" translatesAutoresizingMaskIntoConstraints="NO" id="Zfi-m5-G9X">
+                                <rect key="frame" x="65" y="70" width="285" height="285"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="285" id="4Dv-WX-QLJ"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gnc-Cf-Hm0">
+                                <rect key="frame" x="65" y="394" width="285" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="285" id="IMH-Ge-mpt"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xCY-GS-fjW">
+                                <rect key="frame" x="65" y="468" width="285" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="IAD-Yp-bb0"/>
+                                    <constraint firstAttribute="width" constant="285" id="hdD-T9-WMk"/>
+                                </constraints>
+                                <state key="normal" title="Submit"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Zfi-m5-G9X" firstAttribute="centerX" secondItem="mqw-Yv-Idt" secondAttribute="centerX" id="CJV-vK-zQ2"/>
+                            <constraint firstItem="gnc-Cf-Hm0" firstAttribute="top" secondItem="Zfi-m5-G9X" secondAttribute="bottom" constant="39" id="FSZ-D7-obI"/>
+                            <constraint firstItem="xCY-GS-fjW" firstAttribute="top" secondItem="gnc-Cf-Hm0" secondAttribute="bottom" constant="44" id="Iv6-eW-7EM"/>
+                            <constraint firstItem="Zfi-m5-G9X" firstAttribute="top" secondItem="MQi-BW-ZK6" secondAttribute="top" constant="50" id="YQj-Fu-KwF"/>
+                            <constraint firstItem="Zfi-m5-G9X" firstAttribute="leading" secondItem="gnc-Cf-Hm0" secondAttribute="leading" id="nXA-kr-AXv"/>
+                            <constraint firstItem="gnc-Cf-Hm0" firstAttribute="leading" secondItem="xCY-GS-fjW" secondAttribute="leading" id="rkz-ez-O5W"/>
+                            <constraint firstItem="Zfi-m5-G9X" firstAttribute="trailing" secondItem="gnc-Cf-Hm0" secondAttribute="trailing" id="wqy-c7-anf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MQi-BW-ZK6"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eUV-Pc-hYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2796" y="-20"/>
         </scene>
         <!--LoginViewController-->
         <scene sceneID="cwa-ts-heK">
@@ -151,6 +207,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="image_placeholder-1" width="375" height="375"/>
+        <image name="insta_camera_btn" width="25" height="25"/>
         <image name="word" width="410" height="132"/>
     </resources>
 </document>
