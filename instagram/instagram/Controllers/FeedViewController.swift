@@ -14,14 +14,19 @@ class FeedViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var posts = [PFObject]()
+    let refreshController = UIRefreshControl()
+    var numPosts = 5
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        refreshController.addTarget(self, action: #selector(viewDidAppear), for: .valueChanged)
+        tableView.refreshControl = refreshController
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    @objc override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tableView.reloadData()
         
@@ -35,11 +40,23 @@ class FeedViewController: UIViewController {
             if posts != nil{
                 self.posts = posts!
                 self.tableView.reloadData()
+            } else{
+                self.createAlert(title: "Error", message: "\(error!.localizedDescription)")
             }
-            
         }
-        
+        self.refreshController.endRefreshing()
     }
+
+    
+    //------------------------Error Message  -------------
+    func createAlert(title:String, message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert,animated: true, completion: nil)
+    }
+    
 }
 extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

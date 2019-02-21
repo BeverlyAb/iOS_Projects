@@ -53,7 +53,7 @@ class LoginViewController: UIViewController {
     }
 
     
-    //------------------------alert to show that Tweets couldn't be loaded-------------
+     //------------------------Error Message  -------------
     func createAlert(title:String, message:String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
