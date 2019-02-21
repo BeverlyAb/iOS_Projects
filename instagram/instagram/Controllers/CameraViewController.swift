@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 internal class CameraViewController : UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate{
 
@@ -28,6 +29,17 @@ internal class CameraViewController : UIViewController, UIImagePickerControllerD
         }
         
         present(picker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+//        let image = info[.editedImage]
+//        
+//        //resize the image
+//        let size = CGSize(width: 300, height: 300)
+//        let scaledImage = image.af_imageScaled(to:size)
+//        imageView.image = scaledImage
+//        
+//        dismiss(animated: true, completion: nil)
     }
     
     
