@@ -13,9 +13,7 @@ import Parse
 internal class CameraViewController : UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate{
 
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var commentTextField: UITextField!
-    var posts = [String]()
-    
+    @IBOutlet weak var commentTextField: UITextField!    
     
     @IBAction func onSubmitButton(_ sender: Any) {
         let post = PFObject(className: "Posts")
