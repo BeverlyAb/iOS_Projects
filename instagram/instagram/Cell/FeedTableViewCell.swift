@@ -11,13 +11,7 @@ import UIKit
 class FeedTableViewCell: UITableViewCell {
 
     @IBOutlet weak var photoImg: UIImageView!
-    @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
-    
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        // Initialization code
-//    }
-
+    @IBOutlet weak var profileImg: UIImageView!
 }

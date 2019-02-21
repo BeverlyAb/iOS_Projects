@@ -22,6 +22,7 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = 340
         refreshController.addTarget(self, action: #selector(viewDidAppear), for: .valueChanged)
         tableView.refreshControl = refreshController
     }
@@ -58,25 +59,39 @@ class FeedViewController: UIViewController {
     }
     
 }
+
+
 extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeedTableViewCell") as! FeedTableViewCell
         let post = posts[indexPath.row]
         
         let user = post["author"] as! PFUser
         cell.authorLabel.text = user.username
-        cell.captionLabel.text = post["caption"] as! String
+        cell.captionLabel.text = post["caption"] as? String
         
-        let imgFile = post["image"] as! PFFileObject
-        let urlStr = imgFile.url!
-        let url = URL(string: urlStr)!
-        cell.photoImg.af_setImage(withURL: url)
+        if(post["image"] as? PFFileObject != nil){
+            let imgFile = post["image"] as! PFFileObject
+            let urlStr = imgFile.url!
+            let  url = URL(string: urlStr)!
+            cell.photoImg.af_setImage(withURL: url)
+        }
+        if(post["profile"] as? PFFileObject != nil){
+            let proFile = post["profile"] as! PFFileObject
+            let urlStr = proFile.url!
+            let url = URL(string: urlStr)!
+            cell.profileImg.af_setImage(withURL: url)
+        }
         
         return cell
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      return posts.count
     }
 }
 
