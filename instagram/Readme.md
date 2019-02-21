@@ -22,5 +22,5 @@ The following **bonus** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
+![](IG.gif)
 
-<img src='![](IG.gif)' title='Video Walkthrough' width='' alt='Video Walkthrough' />
