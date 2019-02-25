@@ -22,7 +22,6 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 340
         refreshController.addTarget(self, action: #selector(viewDidAppear), for: .valueChanged)
         tableView.refreshControl = refreshController
     }
@@ -79,6 +78,7 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
         
         //postCell
         if (indexPath.row == 0) {
+        
             let cell = tableView.dequeueReusableCell(withIdentifier: "FeedTableViewCell") as! FeedTableViewCell
         
             let user = post["author"] as! PFUser
@@ -97,7 +97,7 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
                 let url = URL(string: urlStr)!
                 cell.profileImg.af_setImage(withURL: url)
             }
-        
+            
             return cell
         } else { // commentCell
             let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell") as! CommentCell

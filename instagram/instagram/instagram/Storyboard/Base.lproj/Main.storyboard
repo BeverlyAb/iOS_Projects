@@ -23,11 +23,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedTableViewCell" rowHeight="348" id="cnI-yX-1xJ" customClass="FeedTableViewCell" customModule="instagram" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="348"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedTableViewCell" rowHeight="346" id="cnI-yX-1xJ" customClass="FeedTableViewCell" customModule="instagram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="346"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cnI-yX-1xJ" id="WM7-lA-avN">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="347.66666666666669"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="345.66666666666669"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LhE-eC-VFd">
@@ -81,11 +81,11 @@
                                             <outlet property="profileImg" destination="dvr-Kp-gkF" id="Dg4-ZE-FGb"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="71" id="Qc6-e0-the" customClass="CommentCell" customModule="instagram" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="376" width="414" height="71"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="61" id="Qc6-e0-the" customClass="CommentCell" customModule="instagram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="374" width="414" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qc6-e0-the" id="CJ2-PT-eaC">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGq-6P-lb9">
@@ -98,7 +98,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PdK-Xn-lbA">
-                                                    <rect key="frame" x="80" y="25.333333333333336" width="250" height="20.333333333333336"/>
+                                                    <rect key="frame" x="80" y="25" width="250" height="10.666666666666664"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="250" id="IIa-Dl-XXd"/>
                                                     </constraints>
