@@ -33,7 +33,7 @@ class FeedViewController: UIViewController {
         
         //query
         let query = PFQuery(className: "Posts")
-        query.includeKey("author") //fetches obj from pointer
+        query.includeKeys(["author", "comments","comments.author"])///fetches obj from pointer
         query.limit = 20
         
         //store data
@@ -74,27 +74,40 @@ class FeedViewController: UIViewController {
 
 extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FeedTableViewCell") as! FeedTableViewCell
-        let post = posts[indexPath.row]
+        let post = posts[indexPath.section]
+        let comments = (post["comments"] as? [PFObject]) ?? []
         
-        let user = post["author"] as! PFUser
-        cell.authorLabel.text = user.username
-        cell.captionLabel.text = post["caption"] as? String
+        //postCell
+        if (indexPath.row == 0) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FeedTableViewCell") as! FeedTableViewCell
         
-        if(post["image"] as? PFFileObject != nil){
-            let imgFile = post["image"] as! PFFileObject
-            let urlStr = imgFile.url!
-            let  url = URL(string: urlStr)!
-            cell.photoImg.af_setImage(withURL: url)
+            let user = post["author"] as! PFUser
+            cell.authorLabel.text = user.username
+            cell.captionLabel.text = post["caption"] as? String
+            
+            if(post["image"] as? PFFileObject != nil){
+                let imgFile = post["image"] as! PFFileObject
+                let urlStr = imgFile.url!
+                let  url = URL(string: urlStr)!
+                cell.photoImg.af_setImage(withURL: url)
+            }
+            if(post["profile"] as? PFFileObject != nil){
+                let proFile = post["profile"] as! PFFileObject
+                let urlStr = proFile.url!
+                let url = URL(string: urlStr)!
+                cell.profileImg.af_setImage(withURL: url)
+            }
+        
+            return cell
+        } else { // commentCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell") as! CommentCell
+            let comment = comments[indexPath.row - 1]
+            let user = comment["author"] as! PFUser
+            cell.authorLabel.text = user.username
+            
+            cell.commentLabel.text = comment["text"] as? String
+            return cell
         }
-        if(post["profile"] as? PFFileObject != nil){
-            let proFile = post["profile"] as! PFFileObject
-            let urlStr = proFile.url!
-            let url = URL(string: urlStr)!
-            cell.profileImg.af_setImage(withURL: url)
-        }
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -117,11 +130,15 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return posts.count
+        let post = posts[section]
+        //optional = if nil then it takes on []
+        let comments = (post["comments"] as? [PFObject]) ?? []
+        
+        return comments.count + 1
     }
 }
 
