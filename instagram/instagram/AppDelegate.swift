@@ -22,7 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://intense-reaches-79374.herokuapp.com/parse"
             })
         )
-            
+        //check if already logged in
+        if PFUser.current() != nil{
+            let main = UIStoryboard(name: "Main", bundle: nil)
+            let feedNavigationController = main.instantiateViewController(withIdentifier: "FeedNavigationController")
+            window?.rootViewController = feedNavigationController
+        }
+        
         return true
     }
 

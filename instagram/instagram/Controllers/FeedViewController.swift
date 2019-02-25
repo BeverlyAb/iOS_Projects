@@ -48,6 +48,17 @@ class FeedViewController: UIViewController {
         self.refreshController.endRefreshing()
     }
 
+    //logout
+    @IBAction func onLogout(_ sender: Any) {
+        PFUser.logOut()
+        
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let loginViewController = main.instantiateViewController(withIdentifier: "LoginViewController")
+        
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.window?.rootViewController = loginViewController
+    }
+    
     
     //------------------------Error Message  -------------
     func createAlert(title:String, message:String){
@@ -84,6 +95,25 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let post = posts[indexPath.row]
+        
+        let comment = PFObject(className: "Comments")
+        comment["text"] = "Random comment"
+        comment["post"] = post
+        comment["author"] = PFUser.current()!
+        
+       post.add(comment, forKey: "comments")
+        post.saveInBackground{(success, error) in
+            if (success){
+                self.createAlert(title: "Success", message: "Comment Saved")
+            } else{
+                self.createAlert(title: "Uh oh", message: "\(error?.localizedDescription)")
+            }
+            
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
