@@ -20,6 +20,8 @@ class FeedViewController: UIViewController, MessageInputBarDelegate {
     let commentBar = MessageInputBar()
     var showsCommentBar = false
     
+    var selectedPost : PFObject!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,6 +68,22 @@ class FeedViewController: UIViewController, MessageInputBarDelegate {
     //-------------------- message text bar ---------------------------
     func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
         //create the comment
+        let comment = PFObject(className: "Comments")
+        comment["text"] = text
+        comment["post"] = selectedPost
+        comment["author"] = PFUser.current()!
+
+        selectedPost.add(comment, forKey: "comments")
+        selectedPost.saveInBackground{(success, error) in
+            if (success){
+                //self.createAlert(title: "Success", message: "Comment Saved")
+                print("Comment Saved")
+            } else{
+                self.createAlert(title: "Uh oh", message: "\(error?.localizedDescription)")
+            }
+
+        }
+        tableView.reloadData()
         
         //clear and dismiss input bar
         commentBar.inputTextView.text = nil
@@ -154,7 +172,7 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let post = posts[indexPath.row]
+        let post = posts[indexPath.section]
         
         let comments = (post["comments"] as? [PFObject]) ?? []
         
@@ -162,22 +180,9 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
             showsCommentBar = true
             becomeFirstResponder()
             commentBar.inputTextView.becomeFirstResponder()
+            
+            selectedPost = post
         }
-//        comment["text"] = "Random comment"
-//        comment["post"] = post
-//        comment["author"] = PFUser.current()!
-//
-//       post.add(comment, forKey: "comments")
-//        post.saveInBackground{(success, error) in
-//            if (success){
-//                self.createAlert(title: "Success", message: "Comment Saved")
-//            } else{
-//                self.createAlert(title: "Uh oh", message: "\(error?.localizedDescription)")
-//            }
-//
-//        }
-        
-        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
