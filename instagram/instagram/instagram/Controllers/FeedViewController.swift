@@ -11,7 +11,7 @@ import Parse
 import AlamofireImage
 import MessageInputBar
 
-class FeedViewController: UIViewController {
+class FeedViewController: UIViewController, MessageInputBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     var posts = [PFObject]()
@@ -22,12 +22,25 @@ class FeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.delegate = self
         tableView.dataSource = self
         refreshController.addTarget(self, action: #selector(viewDidAppear), for: .valueChanged)
         tableView.refreshControl = refreshController
         
         tableView.keyboardDismissMode = .interactive
+        
+        
+        //config commentbar
+        commentBar.inputTextView.placeholder = "Add a comment..."
+        commentBar.sendButton.title = "Post"
+        commentBar.delegate = self
+        
+        //broadcasts notifications
+        let center = NotificationCenter.default
+        //self = viewController
+        //selector = name of function called
+        center.addObserver(self, selector: #selector(keyboardWillBeHidden(note:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc override func viewDidAppear(_ animated: Bool) {
@@ -51,6 +64,16 @@ class FeedViewController: UIViewController {
         self.refreshController.endRefreshing()
     }
     //-------------------- message text bar ---------------------------
+    func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
+        //create the comment
+        
+        //clear and dismiss input bar
+        commentBar.inputTextView.text = nil
+        showsCommentBar = false
+        becomeFirstResponder()
+        commentBar.inputTextView.resignFirstResponder()
+    }
+    
     override var inputAccessoryView: UIView?{
         return commentBar
     }
@@ -59,6 +82,11 @@ class FeedViewController: UIViewController {
         return showsCommentBar
     }
     
+    @objc func keyboardWillBeHidden(note: Notification){
+        commentBar.inputTextView.text = nil
+        showsCommentBar = false
+        becomeFirstResponder()
+    }
     //--------------------- logout -----------------------------------
     @IBAction func onLogout(_ sender: Any) {
         PFUser.logOut()
@@ -128,20 +156,28 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let post = posts[indexPath.row]
         
-        let comment = PFObject(className: "Comments")
-        comment["text"] = "Random comment"
-        comment["post"] = post
-        comment["author"] = PFUser.current()!
+        let comments = (post["comments"] as? [PFObject]) ?? []
         
-       post.add(comment, forKey: "comments")
-        post.saveInBackground{(success, error) in
-            if (success){
-                self.createAlert(title: "Success", message: "Comment Saved")
-            } else{
-                self.createAlert(title: "Uh oh", message: "\(error?.localizedDescription)")
-            }
-            
+        if(indexPath.row == comments.count + 1){
+            showsCommentBar = true
+            becomeFirstResponder()
+            commentBar.inputTextView.becomeFirstResponder()
         }
+//        comment["text"] = "Random comment"
+//        comment["post"] = post
+//        comment["author"] = PFUser.current()!
+//
+//       post.add(comment, forKey: "comments")
+//        post.saveInBackground{(success, error) in
+//            if (success){
+//                self.createAlert(title: "Success", message: "Comment Saved")
+//            } else{
+//                self.createAlert(title: "Uh oh", message: "\(error?.localizedDescription)")
+//            }
+//
+//        }
+        
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
