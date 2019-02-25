@@ -11,6 +11,9 @@ import UIKit
 class AddCommentCell: UITableViewCell {
 
     @IBOutlet weak var addCommentLabel: UILabel!
+  
+    @IBOutlet weak var profileImg: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

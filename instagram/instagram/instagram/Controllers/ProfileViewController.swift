@@ -14,20 +14,22 @@ internal class ProfileViewController : UIViewController, UIImagePickerController
     
 
     @IBOutlet weak var imageView: UIImageView!
-    
-    @IBOutlet weak var commentTextField: UITextField!
- 
+    var selectedProfileImgz : PFFileObject!
     
     @IBAction func onSubmitButton(_ sender: Any) {
     
         let post = PFObject(className: "Posts")
         post["author"] = PFUser.current()!
-        post["caption"] = commentTextField.text!
+        post["caption"] = "'\(PFUser.current()!.username!)' updated their profile picture"
         
         let imageData = imageView.image!.pngData()
         let file = PFFileObject(data:imageData!)
         
         post["profile"] = file
+        post["image"] = file
+        
+        //used to retain current profile image
+        selectedProfileImgz = file
         
         post.saveInBackground{(success, error) in
             if (success){
@@ -39,6 +41,13 @@ internal class ProfileViewController : UIViewController, UIImagePickerController
             
         }
     }
+    
+    //segue
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let feedVC = segue.destination as! FeedViewController
+//        feedVC.selectedProfileImg = selectedProfileImgz
+//    }
+
     
     @IBAction func onShootButton(_ sender: Any) {
         let picker = UIImagePickerController()
@@ -59,7 +68,7 @@ internal class ProfileViewController : UIViewController, UIImagePickerController
         
         //resize
         let size = CGSize(width:300, height:300)
-        let scaledImg = image.af_imageScaled(to:size)
+        let scaledImg = image.af_imageAspectScaled(toFill: size)
         
         imageView.image = scaledImg
         dismiss(animated: true, completion: nil)

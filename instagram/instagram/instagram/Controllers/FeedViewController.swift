@@ -21,6 +21,7 @@ class FeedViewController: UIViewController, MessageInputBarDelegate {
     var showsCommentBar = false
     
     var selectedPost : PFObject!
+    var selectedProfileImg : PFFileObject!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -148,14 +149,19 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
                 let urlStr = imgFile.url!
                 let  url = URL(string: urlStr)!
                 cell.photoImg.af_setImage(withURL: url)
+                
             }
             if(post["profile"] as? PFFileObject != nil){
                 let proFile = post["profile"] as! PFFileObject
+//                if(selectedProfileImg != nil){
+//                    proFile = selectedProfileImg!
+//                    print("dang")
+//                }
+                
                 let urlStr = proFile.url!
-                let url = URL(string: urlStr)!
+                let  url = URL(string: urlStr)!
                 cell.profileImg.af_setImage(withURL: url)
             }
-            
             return cell
         } else if (indexPath.row <= comments.count){ // commentCell
             let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell") as! CommentCell
@@ -164,9 +170,30 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
             cell.authorLabel.text = user.username
             
             cell.commentLabel.text = comment["text"] as? String
+//
+//            if(selectedProfileImg != nil){
+//
+//                let proFile = selectedProfileImg!
+//                print("yo \(proFile)")
+//                let urlStr = proFile.url!
+//                let  url = URL(string: urlStr)!
+//                cell.proImg.af_setImage(withURL: url)
+//            }
+            
             return cell
         } else { //addCommmentCell
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddCommentCell") as! AddCommentCell
+                
+            let profileVC = ProfileViewController()
+            selectedProfileImg = profileVC.selectedProfileImgz
+            if(selectedProfileImg != nil){
+                let proFile = selectedProfileImg!
+                let urlStr = proFile.url!
+                let  url = URL(string: urlStr)!
+                cell.profileImg.af_setImage(withURL: url)
+            }
+                
+              
             return cell
         }
     }
