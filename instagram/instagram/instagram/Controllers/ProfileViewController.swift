@@ -14,7 +14,6 @@ internal class ProfileViewController : UIViewController, UIImagePickerController
     
 
     @IBOutlet weak var imageView: UIImageView!
-    var selectedProfileImgz : PFFileObject!
     
     @IBAction func onSubmitButton(_ sender: Any) {
     
@@ -28,9 +27,6 @@ internal class ProfileViewController : UIViewController, UIImagePickerController
         post["profile"] = file
         post["image"] = file
         
-        //used to retain current profile image
-        selectedProfileImgz = file
-        
         post.saveInBackground{(success, error) in
             if (success){
                 self.dismiss(animated: true, completion: nil)
@@ -41,12 +37,7 @@ internal class ProfileViewController : UIViewController, UIImagePickerController
             
         }
     }
-    
-    //segue
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let feedVC = segue.destination as! FeedViewController
-//        feedVC.selectedProfileImg = selectedProfileImgz
-//    }
+
 
     
     @IBAction func onShootButton(_ sender: Any) {
