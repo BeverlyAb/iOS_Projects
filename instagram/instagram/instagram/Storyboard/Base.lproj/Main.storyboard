@@ -122,6 +122,33 @@
                                             <outlet property="commentLabel" destination="PdK-Xn-lbA" id="cOI-Uc-agC"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddCommentCell" id="esV-5M-y7T" customClass="AddCommentCell" customModule="instagram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="435" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="esV-5M-y7T" id="ZWz-bc-Ix2">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a comment..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1f-oS-iKs">
+                                                    <rect key="frame" x="80" y="0.0" width="242" height="20.333333333333332"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="242" id="muC-Of-EpZ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                                    <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="y1f-oS-iKs" firstAttribute="top" secondItem="ZWz-bc-Ix2" secondAttribute="top" id="1v1-DV-9Kn"/>
+                                                <constraint firstItem="y1f-oS-iKs" firstAttribute="leading" secondItem="ZWz-bc-Ix2" secondAttribute="leading" constant="80" id="9s3-2a-nZF"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="y1f-oS-iKs" secondAttribute="bottom" constant="20" id="dT8-1V-fTP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="addCommentLabel" destination="y1f-oS-iKs" id="tZi-ee-LOq"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>

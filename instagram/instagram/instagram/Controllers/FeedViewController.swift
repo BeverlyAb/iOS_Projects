@@ -9,14 +9,16 @@
 import UIKit
 import Parse
 import AlamofireImage
+import MessageInputBar
 
 class FeedViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var posts = [PFObject]()
     let refreshController = UIRefreshControl()
-    var numPosts = 5
     
+    let commentBar = MessageInputBar()
+    var showsCommentBar = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,8 @@ class FeedViewController: UIViewController {
         tableView.dataSource = self
         refreshController.addTarget(self, action: #selector(viewDidAppear), for: .valueChanged)
         tableView.refreshControl = refreshController
+        
+        tableView.keyboardDismissMode = .interactive
     }
     
     @objc override func viewDidAppear(_ animated: Bool) {
@@ -46,8 +50,16 @@ class FeedViewController: UIViewController {
         }
         self.refreshController.endRefreshing()
     }
-
-    //logout
+    //-------------------- message text bar ---------------------------
+    override var inputAccessoryView: UIView?{
+        return commentBar
+    }
+    
+    override var canBecomeFirstResponder: Bool{
+        return showsCommentBar
+    }
+    
+    //--------------------- logout -----------------------------------
     @IBAction func onLogout(_ sender: Any) {
         PFUser.logOut()
         
@@ -99,13 +111,16 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
             }
             
             return cell
-        } else { // commentCell
+        } else if (indexPath.row <= comments.count){ // commentCell
             let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell") as! CommentCell
             let comment = comments[indexPath.row - 1]
             let user = comment["author"] as! PFUser
             cell.authorLabel.text = user.username
             
             cell.commentLabel.text = comment["text"] as? String
+            return cell
+        } else { //addCommmentCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AddCommentCell") as! AddCommentCell
             return cell
         }
     }
@@ -138,7 +153,7 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
         //optional = if nil then it takes on []
         let comments = (post["comments"] as? [PFObject]) ?? []
         
-        return comments.count + 1
+        return comments.count + 2 // postCell + addCommentCell
     }
 }
 
